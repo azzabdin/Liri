@@ -48,10 +48,10 @@ function concert() {
 }
 
 function song() {
-    console.log("running spotity this song ", data);
-    data = data || "the sign";
+
+    datas = datas || "the sign";
     spotify
-        .search({ type: 'track', query: data })
+        .search({ type: 'track', query: datas })
         .then(function (response) {
             var song = response.tracks.items[0];
             console.log("Artist Name : " + song.artists[0].name);
