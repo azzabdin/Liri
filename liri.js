@@ -71,7 +71,7 @@ function doWhat() {
     
 
         command = song[0];
-        data = song[1];
+        datas = song[1];
         liri();
 
     })
