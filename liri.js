@@ -6,7 +6,7 @@ const Axios = require('axios');
 const FS = require('fs');
 const moment = require('moment')
 var command = process.argv[2];
-var datas = process.argv[3];
+var datas = process.argv.slice(3).join(" ");
 moment().format()
 
 function movie() {
@@ -53,13 +53,13 @@ function song() {
     spotify
         .search({ type: 'track', query: datas })
         .then(function (response) {
-        
+
             var song = response.tracks.items[0];
             console.log("Artist Name : " + song.artists[0].name);
             console.log("Song Name : " + song.name);
             console.log("Song Url : " + song.preview_url);
             console.log("Song Album : " + song.album.name)
-          })
+        })
         .catch(function (err) {
             console.log(err);
         });
@@ -68,7 +68,7 @@ function song() {
 function doWhat() {
     FS.readFile("random.txt", "utf8", function (err, song) {
         song = song.split(",");
-    
+
 
         command = song[0];
         datas = song[1];
