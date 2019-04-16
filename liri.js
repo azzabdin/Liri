@@ -53,12 +53,13 @@ function song() {
     spotify
         .search({ type: 'track', query: datas })
         .then(function (response) {
+        
             var song = response.tracks.items[0];
             console.log("Artist Name : " + song.artists[0].name);
             console.log("Song Name : " + song.name);
             console.log("Song Url : " + song.preview_url);
             console.log("Song Album : " + song.album.name)
-        })
+          })
         .catch(function (err) {
             console.log(err);
         });
@@ -67,7 +68,7 @@ function song() {
 function doWhat() {
     FS.readFile("random.txt", "utf8", function (err, song) {
         song = song.split(",");
-        console.log(song);
+    
 
         command = song[0];
         data = song[1];
